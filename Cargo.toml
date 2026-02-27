@@ -1,0 +1,16 @@
+[package]
+name = "flasher"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "flasher"
+path = "src/main.rs"
+
+[dependencies]
+hidapi = { version = "2", features = ["linux-static-hidraw"] }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1.0"
+
+[target.'cfg(windows)'.dependencies]
+hidapi = { version = "2", features = ["windows-native"] }
